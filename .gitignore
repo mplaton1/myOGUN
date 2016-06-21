@@ -2,4 +2,4 @@
 usosOGUNData.sqlite
 myOGUN/*.pyc
 findOGUN/*.pyc
-
+findOGUN/migrations/
