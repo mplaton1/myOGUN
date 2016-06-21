@@ -1,2 +1,5 @@
 ./idea
 usosOGUNData.sqlite
+myOGUN/*.pyc
+findOGUN/*.pyc
+
