@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    {% load bootstrap3 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <meta charset="UTF-8">
+    <title>myOGUN</title>
+</head>
+<body>
+    <h1>Wyszukaj OGUN według wybranych kryteriów:</h1>
+    <form action="/browse" method="get">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons %}
+            <button type="submit" class="btn btn-primary">
+                {% bootstrap_icon "star" %} Submit
+            </button>
+        {% endbuttons %}
+    </form>
+</body>
+</html>

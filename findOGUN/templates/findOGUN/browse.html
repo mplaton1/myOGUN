@@ -1,10 +1,24 @@
+<!DOCTYPE html>
 <html>
     <head>
+        {% load render_table from django_tables2 %}
+        {% load bootstrap3 %}
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}
+        <meta charset="UTF-8">
+        <title>myOGUN</title>
+        <link rel="stylesheet" href="{{ STATIC_URL }}django_tables2/themes/paleblue/css/screen.css" />
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     </head>
     <body>
+    {% if oguns %}
         <table>
+            <tr>
+                <th>Link do oguna</th>
+                <th>ECTS</th>
+                <th>Termin</th>
+            </tr>
             {% for ogun in oguns %}
                 <tr>
                     <th><a href="{{ ogun.link }}">link</a></th>
@@ -28,5 +42,8 @@
                 {% endif %}
             </span>
         </div>
+    {% else %}
+        No results to display
+    {% endif %}
     </body>
 </html>
