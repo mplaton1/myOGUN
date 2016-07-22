@@ -1,1 +1,1 @@
-web: gunicorn myogun.wsgi --log-file -
+web: gunicorn myOGUN.wsgi --log-file -
