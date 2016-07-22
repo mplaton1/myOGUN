@@ -12,7 +12,6 @@ httplib2==0.9.1
 ipython==2.4.1
 line-profiler==1.0
 lxml==3.6.0
-meld==3.16.1
 numpy==1.11.1rc1
 PAM==0.4.2
 pexpect==4.0.1
