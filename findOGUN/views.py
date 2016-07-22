@@ -3,6 +3,8 @@ from findOGUN.models import Ogun
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from findOGUN.forms import OgunForm
 from django.http import HttpResponseNotFound
+from findOGUN.tables import OgunTable
+from django_tables2 import RequestConfig
 
 
 def browse(request):
@@ -19,17 +21,10 @@ def browse(request):
 
     oguns_list = Ogun.objects.all().filter(ects=request.session['ects'],
                                            ogun_group_id=request.session['ogun_id'])
-    paginator = Paginator(oguns_list, 20)
+    oguns_table = OgunTable(oguns_list)
+    RequestConfig(request).configure(oguns_table)
 
-    page = request.GET.get('page')
-    try:
-        oguns = paginator.page(page)
-    except PageNotAnInteger:
-        oguns = paginator.page(1)
-    except EmptyPage:
-        oguns = paginator.page(paginator.num_pages)
-
-    context = { 'oguns' : oguns, 'oguns_list' : oguns_list }
+    context = { 'oguns_table' : oguns_table }
     return render(request, 'findOGUN/browse.html', context)
 
 

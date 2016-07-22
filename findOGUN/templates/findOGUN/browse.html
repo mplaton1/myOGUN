@@ -12,36 +12,8 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     </head>
     <body>
-    {% if oguns %}
-        <table>
-            <tr>
-                <th>Link do oguna</th>
-                <th>ECTS</th>
-                <th>Termin</th>
-            </tr>
-            {% for ogun in oguns %}
-                <tr>
-                    <th><a href="{{ ogun.link }}">link</a></th>
-                    <th>{{ ogun.ects }}</th>
-                    <th>{{ ogun.date_of_lessons }}</th>
-                </tr>
-            {% endfor %}
-        </table>
-        <div class="pagination">
-            <span class="step-links">
-                {% if oguns.has_previous %}
-                    <a href="?page={{ oguns.previous_page_number }}">previous</a>
-                {% endif %}
-
-                <span class="current">
-                    Page {{ oguns.number }} of {{ oguns.paginator.num_pages }}.
-                </span>
-
-                {% if oguns.has_next %}
-                    <a href="?page={{ oguns.next_page_number }}">next</a>
-                {% endif %}
-            </span>
-        </div>
+    {% if oguns_table %}
+        {% render_table oguns_table %}
     {% else %}
         No results to display
     {% endif %}
