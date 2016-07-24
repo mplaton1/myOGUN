@@ -5,5 +5,5 @@ from findOGUN.models import Ogun
 class OgunTable(tables.Table):
     class Meta:
         model = Ogun
-        exclude = ["id"]
+        exclude = ["id", "adress"]
         attrs = { 'class' : 'container-fluid', 'class' : 'col-xs-12' }
