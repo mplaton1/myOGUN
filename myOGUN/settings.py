@@ -79,9 +79,17 @@ WSGI_APPLICATION = 'myOGUN.wsgi.application'
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+    'sqlite': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'usosOGUNData.sqlite'),
+    },
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'myogun',
+        'USER': 'filip',
+        'PASSWORD': 'mplaton1',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
