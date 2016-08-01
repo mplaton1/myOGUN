@@ -122,6 +122,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
 if not os.environ.get('heroku') is None:
     DATABASES['default'] = dj_database_url.config()
     DEBUG = False
