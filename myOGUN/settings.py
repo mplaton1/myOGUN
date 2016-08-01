@@ -122,7 +122,7 @@ STATIC_URL = '/static/'
 
 if not os.environ.get('heroku') is None:
     DATABASES['default'] = dj_database_url.config()
-    DEBUG = False
+    DEBUG = True
     SECRET_KEY = os.environ.get('secret_key')
 else:
     DEBUG = True
