@@ -24,7 +24,7 @@ def browse(request):
     oguns_table = OgunTable(oguns_list)
     RequestConfig(request).configure(oguns_table)
 
-    context = { 'oguns_table' : oguns_table }
+    context = {'oguns_table': oguns_table}
     return render(request, 'findOGUN/browse.html', context)
 
 

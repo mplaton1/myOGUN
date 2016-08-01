@@ -23,10 +23,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '$4r*mn497-fgax&=3tt3kv2tq_ybb7&50dz%*2jxm48d!6&i%8'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-
-ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -67,6 +63,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.core.context_processors.request',
+                'django.template.context_processors.static',
             ],
         },
     },
@@ -119,6 +116,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_myogun")
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
 if not os.environ.get('heroku') is None:
     DATABASES['default'] = dj_database_url.config()
     DEBUG = False
@@ -128,3 +131,4 @@ else:
     DEBUG = True
     from .local_settings import DATABASES_LOCAL
     DATABASES['default'] = DATABASES_LOCAL['default']
+    ALLOWED_HOSTS = []
