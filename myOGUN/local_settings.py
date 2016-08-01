@@ -8,4 +8,3 @@ DATABASES_LOCAL = {
         'PORT': '',
     }
 }
-

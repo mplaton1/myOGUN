@@ -24,7 +24,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '$4r*mn497-fgax&=3tt3kv2tq_ybb7&50dz%*2jxm48d!6&i%8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -122,7 +121,7 @@ STATIC_URL = '/static/'
 
 if not os.environ.get('heroku') is None:
     DATABASES['default'] = dj_database_url.config()
-    DEBUG = True
+    DEBUG = False
     SECRET_KEY = os.environ.get('secret_key')
 else:
     DEBUG = True
