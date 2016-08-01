@@ -119,10 +119,6 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"),
-)
-
 if not os.environ.get('heroku') is None:
     DATABASES['default'] = dj_database_url.config()
     DEBUG = False
