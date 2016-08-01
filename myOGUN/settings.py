@@ -79,16 +79,7 @@ WSGI_APPLICATION = 'myOGUN.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'myogun',
-        'USER': 'filip',
-        'PASSWORD': 'mplaton1',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-}
+DATABASES = {}
 
 
 # Password validation
@@ -129,4 +120,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-DATABASES['default'] =  dj_database_url.config()
+if not os.environ.get('heroku') is None:
+    DATABASES['default'] = dj_database_url.config()
+    DEBUG = False
+    SECRET_KEY = os.environ.get('secret_key')
+else:
+    DEBUG = True
+    from .local_settings import DATABASES_LOCAL
+    DATABASES['default'] = DATABASES_LOCAL['default']
