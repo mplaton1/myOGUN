@@ -4,15 +4,12 @@ decorator==4.0.6
 Django==1.9.5
 dj-database-url==0.4.1
 django-bootstrap3==7.0.1
-django-tables2==1.2.3
 enum34==1.1.6
 gunicorn==19.6.0
-html5lib==0.999
+html5lib==1.0b6
 httplib2==0.9.1
-ipython==2.4.1
-line-profiler==1.0
+line-profiler==1.0b3
 lxml==3.6.0
-numpy==1.11.1rc1
 pexpect==4.0.1
 Pillow==3.2.0
 ptyprocess==0.5.1
@@ -21,4 +18,4 @@ requests==2.10.0
 simplegeneric==0.8.1
 SQLAlchemy==1.0.13
 whitenoise==3.2
-psycopg2==2.6.2
+psycopg2==2.6.0
